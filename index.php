@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Sesso:
                 </td>
                 <td>
-                    <input type="radio" name="sesso" value="M">
+                    <input required type="radio" name="sesso" value="M">
                     <label>Maschio</label><br>
-                    <input type="radio" name="sesso" value="F">
+                    <input required type="radio" name="sesso" value="F">
                     <label>Femmina</label><br>
                 </td>
             </tr>
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Data di nascita:
                 </td>
                 <td>
-                    <input type="date" name="dataDiNascita">
+                    <input required type="date" name="dataDiNascita">
                 </td>
             </tr>
             <tr>
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Altezza mani sollevamento:
                 </td>
                 <td>
-                    <input type="number" min="0" max="300" name="altezzaManiSoll">
+                    <input required type="number" min="0" max="300" name="altezzaManiSoll">
                 </td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Altezza mani verticale:
                 </td>
                 <td>
-                    <input type="number" min="0" max="300" name="altezzaManiVert">
+                    <input required type="number" min="0" max="300" name="altezzaManiVert">
                 </td>
             </tr>
             <tr>
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Altezza mani orizzontale:
                 </td>
                 <td>
-                    <input type="number" min="0" max="100" name="altezzaManiOr">
+                    <input required type="number" min="0" max="100" name="altezzaManiOr">
                 </td>
             </tr>
             <tr>
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Dislocazione angolare:
                 </td>
                 <td>
-                    <input type="number" min="0" max="360" name="DislocazioneAngolare">
+                    <input required type="number" min="0" max="360" name="DislocazioneAngolare">
                 </td>
             </tr>
             <tr>
@@ -101,7 +101,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Giudizio presa carico:
                 </td>
                 <td>
-                    <input type="number" min="0" max="1" range="0,01" name="GiudizioPresa">
+                    <input required type="radio" name="GiudizioPresa" value="B">
+                    <label>Buono</label><br>
+                    <input required type="radio" name="GiudizioPresa" value="S">
+                    <label>Scarso</label><br>
                 </td>
             </tr>
             <tr>
@@ -109,19 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Frequenza gesti al minuto:
                 </td>
                 <td>
-                    <input type="radio" name="FrequenzaGesti" value="0,2">
-                    <label>0.20</label><br>
-                    <input type="radio" name="FrequenzaGesti" value="1">
-                    <label>1</label><br>
-                    <input type="radio" name="FrequenzaGesti" value="4">
-                    <label>4</label><br>
-                    <input type="radio" name="FrequenzaGesti" value="6">
-                    <label>6</label><br>
-                    <input type="radio" name="FrequenzaGesti" value="9">
-                    <label>9</label><br>
-                    <input type="radio" name="FrequenzaGesti" value="12">
-                    <label>12</label><br>
-
+                    <input required type="number" min="0.20" max="60" step="0.1" name="FrequenzaGesti">
                 </td>
             </tr>
             <tr>
@@ -129,11 +120,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Frequenza lavoro:
                 </td>
                 <td>
-                    <input type="radio" name="FrequenzaLavoro" value="1">
+                    <input required type="radio" name="FrequenzaLavoro" value="1">
                     <label>Continuo < 1 ora </label><br>
-                    <input type="radio" name="FrequenzaLavoro" value="0.95">
+                    <input required type="radio" name="FrequenzaLavoro" value="2">
                     <label>Continuo da 1 a 2 ore</label><br>
-                    <input type="radio" name="FrequenzaLavoro" value="0.85">
+                    <input required type="radio" name="FrequenzaLavoro" value="3">
                     <label>Continuo da 2 a 8 ore</label><br>
                 </td>
             </tr>
@@ -142,10 +133,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Peso sollevato:
                 </td>
                 <td>
-                    <input type="number" min="0" max="350" name="DislocazioneAngolare">
+                    <input required type="number" min="0" max="350" name="PesoSollevato">
                 </td>
             </tr>
+            <?php
+            if($IndiceSollevamento > 0):
+            ?>
+            <tr>
+                <td>
+                    Indice Sollevamento:
+                </td>
+                <td>
+                    <?php echo $IndiceSollevamento; ?>
+                </td>
+            </tr>
+            <?php endif; ?>
         </table>
+        <input type = "submit">
     </form>
 </body>
 

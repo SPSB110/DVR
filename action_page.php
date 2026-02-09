@@ -306,7 +306,7 @@ if ($altezzaManiSoll > 0 && $altezzaManiSoll < 25) {
     $FattoreAltezza = 0.78;
 
 }
-elseif ($altezzaManiSoll => 25 && $altezzaManiSoll < 50) {
+elseif ($altezzaManiSoll >= 25 && $altezzaManiSoll < 50) {
 
     $FattoreAltezza = 0.85;
 

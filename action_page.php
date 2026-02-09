@@ -52,7 +52,7 @@ else{
     $FattoreEta = 15;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["altezzaManiSoll"] > 0 && $_GET["altezzaManiSoll"] < 25) {
+if ($_GET["altezzaManiSoll"] < 25) {
 
     $FattoreAltezza = 0.78;
 
@@ -93,7 +93,7 @@ else {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["altezzaManiVert"] > 25 && $_GET["altezzaManiVert"] < 30) {
+if ($_GET["altezzaManiVert"] < 30) {
 
     $FattoreDisclocazioneV = 1;
 
@@ -134,7 +134,7 @@ else {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["altezzaManiOr"] > 25 && $_GET["altezzaManiOr"] < 30) {
+if ($_GET["altezzaManiOr"] < 30) {
 
     $FattoreDisclocazioneO = 1;
 
@@ -170,12 +170,12 @@ else {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["DislocazioneAngolare"] > 0 && $_GET["DislocazioneAngolare"] < 30) {
+if ($_GET["DislocazioneAngolare"] < 30) {
 
     $FattoreDislocazioneAngolare = 1;
 
 }
-elseif ($_GET["DislocazioneAngolare"] > 30 && $_GET["DislocazioneAngolare"] < 60) {
+elseif ($_GET["DislocazioneAngolare"] >= 30 && $_GET["DislocazioneAngolare"] < 60) {
 
     $FattoreDislocazioneAngolare = 0.90;
 
@@ -216,7 +216,7 @@ else {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if($FrequenzaGesti_in >= 0.20 && $FrequenzaGesti_in < 1){
+if($FrequenzaGesti_in < 1){
     if($FrequenzaLavoro == "1"){
         $FrequenzaGesti = 1;
     }
@@ -300,8 +300,10 @@ elseif($eta <= 18 && $eta > 15 && $sesso == "M"){
 else{
     $FattoreEta = 15;
 }
+log_calc('eta', $eta);
+log_calc('FattoreEta', $FattoreEta);
 
-if ($altezzaManiSoll > 0 && $altezzaManiSoll < 25) {
+if ($altezzaManiSoll < 25) {
 
     $FattoreAltezza = 0.78;
 
@@ -341,8 +343,9 @@ else {
     $FattoreAltezza = 0;
 
 }
+log_calc('FattoreAltezza', $FattoreAltezza);
 
-if ($altezzaManiVert > 25 && $altezzaManiVert < 30) {
+if ($altezzaManiVert < 30) {
 
     $FattoreDisclocazioneV = 1;
 
@@ -382,8 +385,9 @@ else {
     $FattoreDisclocazioneV = 0;
 
 }
+log_calc('FattoreDisclocazioneV', $FattoreDisclocazioneV);
 
-if ($altezzaManiOr > 25 && $altezzaManiOr < 30) {
+if ($altezzaManiOr < 30) {
 
     $FattoreDisclocazioneO = 1;
 
@@ -418,8 +422,9 @@ else {
     $FattoreDisclocazioneO = 0;
 
 }
+log_calc('FattoreDisclocazioneO', $FattoreDisclocazioneO);
 
-if ($DislocazioneAngolare > 0 && $DislocazioneAngolare < 30) {
+if ($DislocazioneAngolare < 30) {
 
     $FattoreDislocazioneAngolare = 1;
 
@@ -454,6 +459,7 @@ else {
     $FattoreDislococazioneAngolare = 0;
 
 }
+log_calc('FattoreDislocazioneAngolare', $FattoreDislocazioneAngolare);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -465,10 +471,11 @@ if ($GiudizioPresa == "B") {
 else {
     $FattoreGiudizioPresa = 0.90;
 }
+log_calc('FattoreGiudizioPresa', $FattoreGiudizioPresa);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if($FrequenzaGesti_in >= 0.20 && $FrequenzaGesti_in < 1){
+if($FrequenzaGesti_in < 1){
     if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 1;
     }
@@ -543,15 +550,18 @@ else if($FrequenzaGesti_in >=  12 ){
 else{
     $FrequenzaGesti = 0;
 }
+log_calc('FrequenzaGesti', $FrequenzaGesti);
 
 // Previeni divisione per zero
 $den = $FattoreEta * $FattoreAltezza * $FattoreDisclocazioneV * $FattoreDisclocazioneO * $FattoreDislocazioneAngolare * $FattoreGiudizioPresa * $FrequenzaGesti;
+log_calc('Denominatore', $den);
 if (!is_numeric($PesoSollevato) || $den <= 0) {
     header('Location: index.php?error=invalid_input');
     exit;
 }
 
 $IndiceSollevamento = $PesoSollevato / $den;
+log_calc('IndiceSollevamento', $IndiceSollevamento);
 
 //fai ritornare ad index.php con i risultati
 header("Location: index.php?IndiceSollevamento=" . $IndiceSollevamento);

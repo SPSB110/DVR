@@ -1,4 +1,5 @@
 <?php
+/*
 session_start();
 // Database connection with PDO (MySQL)
 $host = 'host';
@@ -19,4 +20,10 @@ try {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 */
+function log_calc($label, $value) {
+    $logFile = __DIR__ . '/calcoli.log';
+    $line = date('Y-m-d H:i:s') . ' [CALC] ' . $label . ': ' . json_encode($value) . PHP_EOL;
+    error_log($line, 3, $logFile);
+}
+
 ?>

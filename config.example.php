@@ -1,10 +1,10 @@
 <?php
 session_start();
 // Database connection with PDO (MySQL)
-$host = 'sql203.infinityfree.com';
-$db   = 'if0_40885530_sicurezza';
-$user = 'if0_40885530';
-$pass = 'jotgoxx9toc';
+$host = 'host';
+$db   = 'name';
+$user = 'user';
+$pass = 'passwd';
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [

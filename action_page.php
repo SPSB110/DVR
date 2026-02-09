@@ -556,7 +556,7 @@ log_calc('FrequenzaGesti', $FrequenzaGesti);
 $den = $FattoreEta * $FattoreAltezza * $FattoreDisclocazioneV * $FattoreDisclocazioneO * $FattoreDislocazioneAngolare * $FattoreGiudizioPresa * $FrequenzaGesti;
 log_calc('Denominatore', $den);
 if (!is_numeric($PesoSollevato) || $den <= 0) {
-    header('Location: index.php?error=invalid_input');
+    header("Location: index.php?IndiceSollevamento=" . 0);
     exit;
 }
 

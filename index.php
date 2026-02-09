@@ -81,7 +81,7 @@ $IndiceSollevamento = ($IndiceSollevamento !== null && $IndiceSollevamento !== f
                     Altezza mani verticale:
                 </td>
                 <td>
-                    <input required type="number" min="0" max="300" name="altezzaManiVert">
+                    <input required type="number" min="25" max="300" name="altezzaManiVert">
                 </td>
             </tr>
             <tr>
@@ -89,7 +89,7 @@ $IndiceSollevamento = ($IndiceSollevamento !== null && $IndiceSollevamento !== f
                     Altezza mani orizzontale:
                 </td>
                 <td>
-                    <input required type="number" min="0" max="100" name="altezzaManiOr">
+                    <input required type="number" min="25" max="100" name="altezzaManiOr">
                 </td>
             </tr>
             <tr>

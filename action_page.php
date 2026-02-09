@@ -216,77 +216,75 @@ else {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-switch ($_GET["FrequenzaGesti"]) {
-    case "0.20":
-        if($_GET["FrequenzaLavoro"] == "1"){
-            $FrequenzaGesti = 1;
-        }
-        elseif($_GET["FrequenzaLavoro"] == "2"){
-            $FrequenzaGesti = 0.95;
-        }
-        else{
-            $FrequenzaGesti = 0.85;
-        }
-        break;
-    case "1":
-        if($_GET["FrequenzaLavoro"] == "1"){
-            $FrequenzaGesti = 0.94;
-        }
-        elseif($_GET["FrequenzaLavoro"] == "2"){
-            $FrequenzaGesti = 0.88;
-        }
-        else{
-            $FrequenzaGesti = 0.75;
-        }
-        break;
-    case "4":
-        if($_GET["FrequenzaLavoro"] == "1"){
-            $FrequenzaGesti = 0.84;
-        }
-        elseif($_GET["FrequenzaLavoro"] == "2"){
-            $FrequenzaGesti = 0.72;
-        }
-        else{
-            $FrequenzaGesti = 0.45;
-        }
-        break;
-    case "6":
-        if($_GET["FrequenzaLavoro"] == "1"){
-            $FrequenzaGesti = 0.75;
-        }
-        elseif($_GET["FrequenzaLavoro"] == "2"){
-            $FrequenzaGesti = 0.50;
-        }
-        else{
-            $FrequenzaGesti = 0.27;
-        }
-        break;
-    case "9":
-        if($_GET["FrequenzaLavoro"] == "1"){
-            $FrequenzaGesti = 0.52;
-        }
-        elseif($_GET["FrequenzaLavoro"] == "2"){
-            $FrequenzaGesti = 0.30;
-        }
-        else{
-            $FrequenzaGesti = 0.15;
-        }
-        break;
-    case "12":
-        if($_GET["FrequenzaLavoro"] == "1"){
-            $FrequenzaGesti = 0.37;
-        }
-        elseif($_GET["FrequenzaLavoro"] == "2"){
-            $FrequenzaGesti = 0.21;
-        }
-        else{
-            $FrequenzaGesti = 0;
-        }
-        break;
-    default:
-        $FrequenzaGesti = 0;
-
+if($FrequenzaGesti_in >= 0.20 && $FrequenzaGesti_in < 1){
+    if($FrequenzaLavoro == "1"){
+        $FrequenzaGesti = 1;
     }
+    elseif($FrequenzaLavoro == "2"){
+        $FrequenzaGesti = 0.95;
+    }
+    else{
+        $FrequenzaGesti = 0.85;
+    }
+}
+elseif($FrequenzaGesti_in >= 1 && $FrequenzaGesti_in < 4){
+    if($FrequenzaLavoro == "1"){
+        $FrequenzaGesti = 0.94;
+    }
+    elseif($FrequenzaLavoro == "2"){
+        $FrequenzaGesti = 0.88;
+    }
+    else{
+        $FrequenzaGesti = 0.75;
+    }
+}
+elseif($FrequenzaGesti_in >= 4 && $FrequenzaGesti_in < 6){
+    if($FrequenzaLavoro == "1"){
+        $FrequenzaGesti = 0.84;
+    }
+    elseif($FrequenzaLavoro == "2"){
+        $FrequenzaGesti = 0.72;
+    }
+    else{
+        $FrequenzaGesti = 0.45;
+    }
+}
+elseif($FrequenzaGesti_in >= 6 && $FrequenzaGesti_in < 9){
+    if($FrequenzaLavoro == "1"){
+        $FrequenzaGesti = 0.75;
+    }
+    elseif($FrequenzaLavoro == "2"){
+        $FrequenzaGesti = 0.50;
+    }
+    else{
+        $FrequenzaGesti = 0.27;
+    }
+}
+elseif($FrequenzaGesti_in >= 9 && $FrequenzaGesti_in < 12){
+    if($FrequenzaLavoro == "1"){
+        $FrequenzaGesti = 0.52;
+    }
+    elseif($FrequenzaLavoro == "2"){
+        $FrequenzaGesti = 0.30;
+    }
+    else{
+        $FrequenzaGesti = 0.15;
+    }
+}
+elseif($FrequenzaGesti_in >= 12){
+    if($FrequenzaLavoro == "1"){
+        $FrequenzaGesti = 0.37;
+    }
+    elseif($FrequenzaLavoro == "2"){
+        $FrequenzaGesti = 0.21;
+    }
+    else{
+        $FrequenzaGesti = 0;
+    }
+}
+else{
+    $FrequenzaGesti = 0;
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Usa le variabili sanitize al posto di $_GET
 
@@ -303,37 +301,37 @@ else{
     $FattoreEta = 15;
 }
 
-if ($altezzaManiSoll > 0 && $altezzaManiSoll < 24) {
+if ($altezzaManiSoll > 0 && $altezzaManiSoll < 25) {
 
     $FattoreAltezza = 0.78;
 
 }
-elseif ($altezzaManiSoll > 25 && $altezzaManiSoll < 49) {
+elseif ($altezzaManiSoll => 25 && $altezzaManiSoll < 50) {
 
     $FattoreAltezza = 0.85;
 
 }
-else if ($altezzaManiSoll >= 50 && $altezzaManiSoll < 74) {
+else if ($altezzaManiSoll >= 50 && $altezzaManiSoll < 75) {
 
     $FattoreAltezza = 0.93;
 
 }
-else if ($altezzaManiSoll >= 75 && $altezzaManiSoll < 99) {
+else if ($altezzaManiSoll >= 75 && $altezzaManiSoll < 100) {
 
     $FattoreAltezza = 1;
 
 }
-else if ($altezzaManiSoll >= 100 && $altezzaManiSoll < 124) {
+else if ($altezzaManiSoll >= 100 && $altezzaManiSoll < 125) {
 
     $FattoreAltezza = 0.93;
 
 }
-else if ($altezzaManiSoll >= 125 && $altezzaManiSoll < 149) {
+else if ($altezzaManiSoll >= 125 && $altezzaManiSoll < 150) {
 
     $FattoreAltezza = 0.85;
 
 }
-else if ($altezzaManiSoll >= 150 && $altezzaManiSoll < 174) {
+else if ($altezzaManiSoll >= 150 && $altezzaManiSoll < 175) {
 
     $FattoreAltezza = 0.78;
 
@@ -344,37 +342,37 @@ else {
 
 }
 
-if ($altezzaManiVert > 25 && $altezzaManiVert < 29) {
+if ($altezzaManiVert > 25 && $altezzaManiVert < 30) {
 
     $FattoreDisclocazioneV = 1;
 
 }
-elseif ($altezzaManiVert > 30 && $altezzaManiVert < 39) {
+elseif ($altezzaManiVert >= 30 && $altezzaManiVert < 40) {
 
     $FattoreDisclocazioneV = 0.97;
 
 }
-else if ($altezzaManiVert >= 40 && $altezzaManiVert < 49) {
+else if ($altezzaManiVert >= 40 && $altezzaManiVert < 50) {
 
     $FattoreDisclocazioneV = 0.93;
 
 }
-else if ($altezzaManiVert >= 50 && $altezzaManiVert < 69) {
+else if ($altezzaManiVert >= 50 && $altezzaManiVert < 70) {
 
     $FattoreDisclocazioneV = 0.91;
 
 }
-else if ($altezzaManiVert >= 70 && $altezzaManiVert < 99) {
+else if ($altezzaManiVert >= 70 && $altezzaManiVert < 100) {
 
     $FattoreDisclocazioneV = 0.88;
 
 }
-else if ($altezzaManiVert >= 100 && $altezzaManiVert < 169) {
+else if ($altezzaManiVert >= 100 && $altezzaManiVert < 170) {
 
     $FattoreDisclocazioneV = 0.87;
 
 }
-else if ($altezzaManiVert >= 170 && $altezzaManiVert < 174) {
+else if ($altezzaManiVert >= 170 && $altezzaManiVert < 175) {
 
     $FattoreDisclocazioneV = 0.86;
 
@@ -385,32 +383,32 @@ else {
 
 }
 
-if ($altezzaManiOr > 25 && $altezzaManiOr < 29) {
+if ($altezzaManiOr > 25 && $altezzaManiOr < 30) {
 
     $FattoreDisclocazioneO = 1;
 
 }
-elseif ($altezzaManiOr > 30 && $altezzaManiOr < 39) {
+elseif ($altezzaManiOr >= 30 && $altezzaManiOr < 40) {
 
     $FattoreDisclocazioneO = 0.83;
 
 }
-else if ($altezzaManiOr >= 40 && $altezzaManiOr < 49) {
+else if ($altezzaManiOr >= 40 && $altezzaManiOr < 50) {
 
     $FattoreDisclocazioneO = 0.63;
 
 }
-else if ($altezzaManiOr >= 50 && $altezzaManiOr < 54) {
+else if ($altezzaManiOr >= 50 && $altezzaManiOr < 55) {
 
     $FattoreDisclocazioneO = 0.50;
 
 }
-else if ($altezzaManiOr >= 55 && $altezzaManiOr < 59) {
+else if ($altezzaManiOr >= 55 && $altezzaManiOr < 60) {
 
     $FattoreDisclocazioneO = 0.45;
 
 }
-else if ($altezzaManiOr >= 60 && $altezzaManiOr < 62) {
+else if ($altezzaManiOr >= 60 && $altezzaManiOr < 63) {
 
     $FattoreDisclocazioneO = 0.42;
 
@@ -421,27 +419,27 @@ else {
 
 }
 
-if ($DislocazioneAngolare > 0 && $DislocazioneAngolare < 29) {
+if ($DislocazioneAngolare > 0 && $DislocazioneAngolare < 30) {
 
     $FattoreDislocazioneAngolare = 1;
 
 }
-elseif ($DislocazioneAngolare > 30 && $DislocazioneAngolare < 59) {
+elseif ($DislocazioneAngolare >= 30 && $DislocazioneAngolare < 60) {
 
     $FattoreDislocazioneAngolare = 0.90;
 
 }
-else if ($DislocazioneAngolare >= 60 && $DislocazioneAngolare < 89) {
+else if ($DislocazioneAngolare >= 60 && $DislocazioneAngolare < 90) {
 
     $FattoreDislocazioneAngolare = 0.81;
 
 }
-else if ($DislocazioneAngolare >= 90 && $DislocazioneAngolare < 119) {
+else if ($DislocazioneAngolare >= 90 && $DislocazioneAngolare < 120) {
 
     $FattoreDislocazioneAngolare = 0.71;
 
 }
-else if ($DislocazioneAngolare >= 120 && $DislocazioneAngolare < 134) {
+else if ($DislocazioneAngolare >= 120 && $DislocazioneAngolare < 135) {
 
     $FattoreDislocazioneAngolare = 0.62;
 
@@ -470,11 +468,11 @@ else {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if($FrequenzaGesti_in >= "0.20" && $FrequenzaGesti_in < "1"){
-    if($FrequenzaLavoro == "1"){
+if($FrequenzaGesti_in >= 0.20 && $FrequenzaGesti_in < 1){
+    if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 1;
     }
-    elseif($FrequenzaLavoro == "2"){
+    elseif($FrequenzaLavoro == 2){
         $FrequenzaGesti = 0.95;
     }
     else{
@@ -482,11 +480,11 @@ if($FrequenzaGesti_in >= "0.20" && $FrequenzaGesti_in < "1"){
     }
 
 }
-elseif($FrequenzaGesti_in >= "1" && $FrequenzaGesti_in < "4"){
-    if($FrequenzaLavoro == "1"){
+elseif($FrequenzaGesti_in >=  1  && $FrequenzaGesti_in <  4 ){
+    if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 0.94;
     }
-    elseif($FrequenzaLavoro == "2"){
+    elseif($FrequenzaLavoro ==  2 ){
         $FrequenzaGesti = 0.88;
     }
     else{
@@ -494,11 +492,11 @@ elseif($FrequenzaGesti_in >= "1" && $FrequenzaGesti_in < "4"){
     }
 }
 
-else if($FrequenzaGesti_in >= "4" && $FrequenzaGesti_in < "6"){
-    if($FrequenzaLavoro == "1"){
+else if($FrequenzaGesti_in >=  4  && $FrequenzaGesti_in <  6 ){
+    if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 0.84;
     }
-    elseif($FrequenzaLavoro == "2"){
+    elseif($FrequenzaLavoro ==  2 ){
         $FrequenzaGesti = 0.72;
     }
     else{
@@ -506,11 +504,11 @@ else if($FrequenzaGesti_in >= "4" && $FrequenzaGesti_in < "6"){
     }
 }
 
-else if($FrequenzaGesti_in >= "6" && $FrequenzaGesti_in < "9"){
-    if($FrequenzaLavoro == "1"){
+else if($FrequenzaGesti_in >=  6  && $FrequenzaGesti_in <  9 ){
+    if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 0.75;
     }
-    elseif($FrequenzaLavoro == "2"){
+    elseif($FrequenzaLavoro ==  2 ){
         $FrequenzaGesti = 0.50;
     }
     else{
@@ -518,11 +516,11 @@ else if($FrequenzaGesti_in >= "6" && $FrequenzaGesti_in < "9"){
     }
 }
 
-else if($FrequenzaGesti_in >= "9" && $FrequenzaGesti_in < "12"){
-    if($FrequenzaLavoro == "1"){
+else if($FrequenzaGesti_in >=  9  && $FrequenzaGesti_in <  12 ){
+    if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 0.52;
     }
-    elseif($FrequenzaLavoro == "2"){
+    elseif($FrequenzaLavoro ==  2 ){
         $FrequenzaGesti = 0.30;
     }
     else{
@@ -530,11 +528,11 @@ else if($FrequenzaGesti_in >= "9" && $FrequenzaGesti_in < "12"){
     }
 }
 
-else if($FrequenzaGesti_in >= "12"){
-    if($FrequenzaLavoro == "1"){
+else if($FrequenzaGesti_in >=  12 ){
+    if($FrequenzaLavoro ==  1 ){
         $FrequenzaGesti = 0.37;
     }
-    elseif($FrequenzaLavoro == "2"){
+    elseif($FrequenzaLavoro ==  2 ){
         $FrequenzaGesti = 0.21;
     }
     else{

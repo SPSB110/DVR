@@ -52,37 +52,37 @@ else{
     $FattoreEta = 15;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["altezzaManiSoll"] > 0 && $_GET["altezzaManiSoll"] < 24) {
+if ($_GET["altezzaManiSoll"] > 0 && $_GET["altezzaManiSoll"] < 25) {
 
     $FattoreAltezza = 0.78;
 
 }
-elseif ($_GET["altezzaManiSoll"] > 25 && $_GET["altezzaManiSoll"] < 49) {
+elseif ($_GET["altezzaManiSoll"] >= 25 && $_GET["altezzaManiSoll"] < 50) {
 
     $FattoreAltezza = 0.85;
 
 }
-else if ($_GET["altezzaManiSoll"] >= 50 && $_GET["altezzaManiSoll"] < 74) {
+else if ($_GET["altezzaManiSoll"] >= 50 && $_GET["altezzaManiSoll"] < 75) {
 
     $FattoreAltezza = 0.93;
 
 }
-else if ($_GET["altezzaManiSoll"] >= 75 && $_GET["altezzaManiSoll"] < 99) {
+else if ($_GET["altezzaManiSoll"] >= 75 && $_GET["altezzaManiSoll"] < 100) {
 
     $FattoreAltezza = 1;
 
 }
-else if ($_GET["altezzaManiSoll"] >= 100 && $_GET["altezzaManiSoll"] < 124) {
+else if ($_GET["altezzaManiSoll"] >= 100 && $_GET["altezzaManiSoll"] < 125) {
 
     $FattoreAltezza = 0.93;
 
 }
-else if ($_GET["altezzaManiSoll"] >= 125 && $_GET["altezzaManiSoll"] < 149) {
+else if ($_GET["altezzaManiSoll"] >= 125 && $_GET["altezzaManiSoll"] < 150) {
 
     $FattoreAltezza = 0.85;
 
 }
-else if ($_GET["altezzaManiSoll"] >= 150 && $_GET["altezzaManiSoll"] < 174) {
+else if ($_GET["altezzaManiSoll"] >= 150 && $_GET["altezzaManiSoll"] < 175) {
 
     $FattoreAltezza = 0.78;
 
@@ -93,37 +93,37 @@ else {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["altezzaManiVert"] > 25 && $_GET["altezzaManiVert"] < 29) {
+if ($_GET["altezzaManiVert"] > 25 && $_GET["altezzaManiVert"] < 30) {
 
     $FattoreDisclocazioneV = 1;
 
 }
-elseif ($_GET["altezzaManiVert"] > 30 && $_GET["altezzaManiVert"] < 39) {
+elseif ($_GET["altezzaManiVert"] >= 30 && $_GET["altezzaManiVert"] < 40) {
 
     $FattoreDisclocazioneV = 0.97;
 
 }
-else if ($_GET["altezzaManiVert"] >= 40 && $_GET["altezzaManiVert"] < 49) {
+else if ($_GET["altezzaManiVert"] >= 40 && $_GET["altezzaManiVert"] < 50) {
 
     $FattoreDisclocazioneV = 0.93;
 
 }
-else if ($_GET["altezzaManiVert"] >= 50 && $_GET["altezzaManiVert"] < 69) {
+else if ($_GET["altezzaManiVert"] >= 50 && $_GET["altezzaManiVert"] < 70) {
 
     $FattoreDisclocazioneV = 0.91;
 
 }
-else if ($_GET["altezzaManiVert"] >= 70 && $_GET["altezzaManiVert"] < 99) {
+else if ($_GET["altezzaManiVert"] >= 70 && $_GET["altezzaManiVert"] < 10) {
 
     $FattoreDisclocazioneV = 0.88;
 
 }
-else if ($_GET["altezzaManiVert"] >= 100 && $_GET["altezzaManiVert"] < 169) {
+else if ($_GET["altezzaManiVert"] >= 100 && $_GET["altezzaManiVert"] < 170) {
 
     $FattoreDisclocazioneV = 0.87;
 
 }
-else if ($_GET["altezzaManiVert"] >= 170 && $_GET["altezzaManiVert"] < 174) {
+else if ($_GET["altezzaManiVert"] >= 170 && $_GET["altezzaManiVert"] < 175) {
 
     $FattoreDisclocazioneV = 0.86;
 
@@ -134,32 +134,32 @@ else {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["altezzaManiOr"] > 25 && $_GET["altezzaManiOr"] < 29) {
+if ($_GET["altezzaManiOr"] > 25 && $_GET["altezzaManiOr"] < 30) {
 
     $FattoreDisclocazioneO = 1;
 
 }
-elseif ($_GET["altezzaManiOr"] > 30 && $_GET["altezzaManiOr"] < 39) {
+elseif ($_GET["altezzaManiOr"] >= 30 && $_GET["altezzaManiOr"] < 40) {
 
     $FattoreDisclocazioneO = 0.83;
 
 }
-else if ($_GET["altezzaManiOr"] >= 40 && $_GET["altezzaManiOr"] < 49) {
+else if ($_GET["altezzaManiOr"] >= 40 && $_GET["altezzaManiOr"] < 50) {
 
     $FattoreDisclocazioneO = 0.63;
 
 }
-else if ($_GET["altezzaManiOr"] >= 50 && $_GET["altezzaManiOr"] < 54) {
+else if ($_GET["altezzaManiOr"] >= 50 && $_GET["altezzaManiOr"] < 55) {
 
     $FattoreDisclocazioneO = 0.50;
 
 }
-else if ($_GET["altezzaManiOr"] >= 55 && $_GET["altezzaManiOr"] < 59) {
+else if ($_GET["altezzaManiOr"] >= 55 && $_GET["altezzaManiOr"] < 60) {
 
     $FattoreDisclocazioneO = 0.45;
 
 }
-else if ($_GET["altezzaManiOr"] >= 60 && $_GET["altezzaManiOr"] < 62) {
+else if ($_GET["altezzaManiOr"] >= 60 && $_GET["altezzaManiOr"] < 63) {
 
     $FattoreDisclocazioneO = 0.42;
 
@@ -170,27 +170,27 @@ else {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_GET["DislocazioneAngolare"] > 0 && $_GET["DislocazioneAngolare"] < 29) {
+if ($_GET["DislocazioneAngolare"] > 0 && $_GET["DislocazioneAngolare"] < 30) {
 
     $FattoreDislocazioneAngolare = 1;
 
 }
-elseif ($_GET["DislocazioneAngolare"] > 30 && $_GET["DislocazioneAngolare"] < 59) {
+elseif ($_GET["DislocazioneAngolare"] > 30 && $_GET["DislocazioneAngolare"] < 60) {
 
     $FattoreDislocazioneAngolare = 0.90;
 
 }
-else if ($_GET["DislocazioneAngolare"] >= 60 && $_GET["DislocazioneAngolare"] < 89) {
+else if ($_GET["DislocazioneAngolare"] >= 60 && $_GET["DislocazioneAngolare"] < 90) {
 
     $FattoreDislocazioneAngolare = 0.81;
 
 }
-else if ($_GET["DislocazioneAngolare"] >= 90 && $_GET["DislocazioneAngolare"] < 119) {
+else if ($_GET["DislocazioneAngolare"] >= 90 && $_GET["DislocazioneAngolare"] < 120) {
 
     $FattoreDislocazioneAngolare = 0.71;
 
 }
-else if ($_GET["DislocazioneAngolare"] >= 120 && $_GET["DislocazioneAngolare"] < 134) {
+else if ($_GET["DislocazioneAngolare"] >= 120 && $_GET["DislocazioneAngolare"] < 135) {
 
     $FattoreDislocazioneAngolare = 0.62;
 

@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Legge IndiceSollevamento passato in query da action_page.php
 $IndiceSollevamento = filter_input(INPUT_GET, 'IndiceSollevamento', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-$IndiceSollevamento = ($IndiceSollevamento !== null && $IndiceSollevamento !== false) ? (float)$IndiceSollevamento : 0;
+$IndiceSollevamento = ($IndiceSollevamento !== null && $IndiceSollevamento !== false) ? (float)$IndiceSollevamento : -1;
 
 log_calc('IndiceSollevamento', 20);
 ?>
@@ -143,7 +143,7 @@ log_calc('IndiceSollevamento', 20);
                 </td>
             </tr>
             <?php
-            if($IndiceSollevamento > 0):
+            if($IndiceSollevamento >= 0):
             ?>
             <tr>
                 <td>

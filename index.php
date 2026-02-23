@@ -159,4 +159,6 @@ log_calc('IndiceSollevamento', 20);
     </form>
 </body>
 
+<a href="certificates.php" class="btn">Vai ai certificati</a> 
+
 </html>

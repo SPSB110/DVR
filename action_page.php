@@ -563,8 +563,58 @@ if (!is_numeric($PesoSollevato) || $den <= 0) {
 $IndiceSollevamento = $PesoSollevato / $den;
 log_calc('IndiceSollevamento', $IndiceSollevamento);
 
+//salva il certificato nel database (temporaneamente in un json)
+/*
+salvare tutti questi dati in un json
+$FattoreEta = 0;
+$FattoreAltezza = 0;
+$FattoreDisclocazioneV = 0;
+$FattoreDisclocazioneO = 0;
+$FattoreDislocazioneAngolare = 0;
+$FattoreGiudizioPresa = 0;
+$FrequenzaGesti = 0;
+$sesso 
+$dataDiNascitaStr 
+$altezzaManiSoll 
+$altezzaManiVert
+$altezzaManiOr 
+$DislocazioneAngolare 
+$GiudizioPresa 
+$FrequenzaGesti_in 
+$FrequenzaLavoro 
+$PesoSollevato
+*/
+$jsonTemp = array(
+    'FattoreEta' => $FattoreEta,
+    'FattoreAltezza' => $FattoreAltezza,
+    'FattoreDisclocazioneV' => $FattoreDisclocazioneV,
+    'FattoreDisclocazioneO' => $FattoreDisclocazioneO,
+    'FattoreDislocazioneAngolare' => $FattoreDislocazioneAngolare,
+    'FattoreGiudizioPresa' => $FattoreGiudizioPresa,
+    'FrequenzaGesti' => $FrequenzaGesti,
+    'sesso' => $sesso,
+    'dataDiNascitaStr' => $dataDiNascitaStr,
+    'altezzaManiSoll' => $altezzaManiSoll,
+    'altezzaManiVert' => $altezzaManiVert,
+    'altezzaManiOr' => $altezzaManiOr,
+    'DislocazioneAngolare' => $DislocazioneAngolare,
+    'GiudizioPresa' => $GiudizioPresa,
+    'FrequenzaGesti_in' => $FrequenzaGesti_in,
+    'FrequenzaLavoro' => $FrequenzaLavoro,
+    'PesoSollevato' => $PesoSollevato
+);
+$path =  __DIR__ . "/json/";
+
+$files = scandir($path);
+
+// Rimuove . e ..
+$numerofiles = count(array_diff($files, ['.', '..']));
+$filename = $path . $numerofiles . ".json";
+
+file_put_contents($filename, json_encode($jsonTemp));
+
+
 //fai ritornare ad index.php con i risultati
 header("Location: index.php?IndiceSollevamento=" . $IndiceSollevamento);
 
 ?>
-

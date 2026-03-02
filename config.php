@@ -1,11 +1,11 @@
 <?php
-/*
 session_start();
 // Database connection with PDO (MySQL)
-$host = 'host';
-$db   = 'name';
-$user = 'user';
-$pass = 'passwd';
+/*
+$host = 'sql203.infinityfree.com';
+$db   = 'if0_40885530_sicurezza';
+$user = 'if0_40885530';
+$pass = 'jotgoxx9toc';
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -20,10 +20,24 @@ try {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 */
+$path =  __DIR__ . "/json/";
+
 function log_calc($label, $value) {
     $logFile = __DIR__ . '/calcoli.log';
     $line = date('Y-m-d H:i:s') . ' [CALC] ' . $label . ': ' . json_encode($value) . PHP_EOL;
     error_log($line, 3, $logFile);
+};
+
+function getJsons() {
+    global $path;
+    $files = scandir($path);
+
+    // Rimuove . e ..
+    $numerofiles = count(array_diff($files, ['.', '..']));
 }
+    
+
+
+
 
 ?>

@@ -12,6 +12,7 @@ $FattoreGiudizioPresa = 0;
 $FrequenzaGesti = 0;
 
 // Leggi input
+$ragioneSociale = filter_input(INPUT_GET, 'ragioneSociale', FILTER_SANITIZE_STRING);
 $sesso = filter_input(INPUT_GET, 'sesso', FILTER_SANITIZE_STRING);
 $dataDiNascitaStr = filter_input(INPUT_GET, 'dataDiNascita', FILTER_SANITIZE_STRING);
 $altezzaManiSoll = filter_input(INPUT_GET, 'altezzaManiSoll', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -585,6 +586,7 @@ $FrequenzaLavoro
 $PesoSollevato
 */
 $jsonTemp = array(
+    'RagioneSociale' => $ragioneSociale,
     'FattoreEta' => $FattoreEta,
     'FattoreAltezza' => $FattoreAltezza,
     'FattoreDisclocazioneV' => $FattoreDisclocazioneV,
@@ -603,12 +605,7 @@ $jsonTemp = array(
     'FrequenzaLavoro' => $FrequenzaLavoro,
     'PesoSollevato' => $PesoSollevato
 );
-$path =  __DIR__ . "/json/";
-
-$files = scandir($path);
-
-// Rimuove . e ..
-$numerofiles = count(array_diff($files, ['.', '..']));
+getJsons();
 $filename = $path . $numerofiles . ".json";
 
 file_put_contents($filename, json_encode($jsonTemp));

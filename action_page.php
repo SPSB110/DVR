@@ -1,13 +1,10 @@
 <?php
+// Legacy redirect — calculation is now handled through the engineer interface
+require_once __DIR__ . '/config.php';
+header('Location: /');
+exit;
 
-require_once "config.php";
-
-// Ingresso sicuro: leggi e sanitizza i parametri GET
-$FattoreEta = 0;
-$FattoreAltezza = 0;
-$FattoreDisclocazioneV = 0;
-$FattoreDisclocazioneO = 0;
-$FattoreDislocazioneAngolare = 0;
+/* LEGACY CODE BELOW — kept for reference only
 $FattoreGiudizioPresa = 0;
 $FrequenzaGesti = 0;
 
@@ -613,5 +610,6 @@ file_put_contents($filename, json_encode($jsonTemp));
 
 //fai ritornare ad index.php con i risultati
 header("Location: index.php?IndiceSollevamento=" . $IndiceSollevamento);
+
 
 ?>

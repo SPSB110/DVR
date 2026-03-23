@@ -1,13 +1,29 @@
 <?php
 session_start();
+dvr_debug_log("config.php loaded");
+// Debug log for bootstrap/database issues.
+$debugLogFile = __DIR__ . '/debug.log';
+
+function dvr_debug_log($message, $context = []) {
+    $file = $GLOBALS['debugLogFile'] ?? (__DIR__ . '/debug.log');
+    $line = date('Y-m-d H:i:s') . ' [BOOT] ' . $message;
+    if (!empty($context)) {
+        $line .= ' | ' . json_encode($context, JSON_UNESCAPED_SLASHES);
+    }
+    $line .= PHP_EOL;
+
+    // Write both to dedicated file and PHP error log for easier inspection.
+    error_log($line, 3, $file);
+    error_log(trim($line));
+}
 
 // ============================================================
 // Database Configuration
 // ============================================================
-$host    = 'localhost';
+$host    = '127.0.0.1';
 $db      = 'applicativo_sicurezza';
 $user    = 'root';
-$pass    = '';
+$pass    = 'root';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -18,8 +34,27 @@ $options = [
 ];
 
 try {
+    dvr_debug_log('Tentativo connessione database', [
+        'host' => $host,
+        'db' => $db,
+        'user' => $user,
+        'php' => PHP_VERSION,
+        'sapi' => PHP_SAPI,
+    ]);
     $pdo = new PDO($dsn, $user, $pass, $options);
+    dvr_debug_log('Connessione database riuscita');
 } catch (\PDOException $e) {
+    dvr_debug_log('Errore connessione database', [
+        'message' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'dsn' => "mysql:host=$host;dbname=$db;charset=$charset",
+    ]);
+
+    if (PHP_SAPI !== 'cli') {
+        $consoleMessage = json_encode('DVR DB ERROR: ' . $e->getMessage(), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+        echo '<script>console.error(' . $consoleMessage . ');</script>';
+    }
+
     die('Errore di connessione al database: ' . $e->getMessage());
 }
 

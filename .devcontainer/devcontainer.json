@@ -1,0 +1,27 @@
+{
+    "name": "DVR - PHP + MySQL",
+    "image": "mcr.microsoft.com/devcontainers/php:8.0",
+
+    "features": {
+        "ghcr.io/devcontainers/features/mysql:1": {
+            "version": "8.0",
+            "rootPassword": "root"
+        }
+    },
+
+    "forwardPorts": [3000, 3306],
+    "portsAttributes": {
+        "3000": { "label": "App PHP", "onAutoForward": "openBrowser" },
+        "3306": { "label": "MySQL" }
+    },
+
+    "postCreateCommand": "bash .devcontainer/setup.sh",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "cweijan.vscode-mysql-client2"
+            ]
+        }
+    }
+}

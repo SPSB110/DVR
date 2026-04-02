@@ -35,7 +35,7 @@ if (is_logged_in()) {
 </nav>
 
 <section class="hero">
-    <h1>La Certificazione <span>Intelligente</span></h1>
+    <h1>Gestione della Sicurezza sul Lavoro <br><span>senza pensieri.</span></h1>
     <p>Piattaforma professionale per la valutazione dei rischi da movimentazione manuale dei carichi secondo il metodo NIOSH.</p>
     <div class="d-flex gap-2 items-center" style="justify-content:center">
         <a href="/login.php" class="btn btn-primary btn-lg">Accedi alla Piattaforma</a>
